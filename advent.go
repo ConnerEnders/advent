@@ -19,16 +19,16 @@ func main() {
 	}
 }
 
-func read(file string) string {
-	input, err := ioutil.ReadFile(file)
-	check(err)
-	return string(input)
-}
-
 func check(e error) {
 	if e != nil {
 		panic(e)
 	}
+}
+
+func read(file string) string {
+	input, err := ioutil.ReadFile(file)
+	check(err)
+	return string(input)
 }
 
 func getInt(s string) int {

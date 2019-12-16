@@ -29,11 +29,6 @@ func compute(mem []int, noun, verb int) int {
 		p1 := mem[i+1]
 		p2 := mem[i+2]
 		store := mem[i+3]
-		if p1 < 0 || p1 >= len(mem) ||
-			p2 < 0 || p2 >= len(mem) ||
-			store < 0 || store >= len(mem) {
-			break
-		}
 		if op == 1 {
 			mem[store] = mem[p1] + mem[p2]
 		} else if op == 2 {
