@@ -5,17 +5,16 @@ import (
 	"strings"
 )
 
-func two(part int) {
+func two() {
 	mem := strings.Split(read("two.txt"), ",")
-	if part == 1 {
-		fmt.Println(compute(getInts(mem), 12, 2))
-	} else {
-		for noun := 0; noun < 100; noun++ {
-			for verb := 0; verb < 100; verb++ {
-				result := compute(getInts(mem), noun, verb)
-				if result == 19690720 {
-					fmt.Println(noun, verb)
-				}
+	// part 1
+	fmt.Println(compute(getInts(mem), 12, 2))
+	// part 2
+	for noun := 0; noun < 100; noun++ {
+		for verb := 0; verb < 100; verb++ {
+			result := compute(getInts(mem), noun, verb)
+			if result == 19690720 {
+				fmt.Println(noun, verb)
 			}
 		}
 	}

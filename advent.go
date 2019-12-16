@@ -1,21 +1,20 @@
 package main
 
 import (
-	"flag"
+	"fmt"
 	"io/ioutil"
+	"os"
 	"strconv"
 )
 
 func main() {
-	day := flag.Int("d", 2, "Advent day")
-	part := flag.Int("p", 2, "Advent day part")
-	flag.Parse()
-
-	switch *day {
+	switch getInt(os.Args[1]) {
 	case 1:
-		one(*part)
+		one()
 	case 2:
-		two(*part)
+		two()
+	case 3:
+		fmt.Println(sliceInt(1239487192, make([]int, 0)))
 	}
 }
 
@@ -43,4 +42,13 @@ func getInts(strings []string) []int {
 		ints = append(ints, getInt(s))
 	}
 	return ints
+}
+
+func sliceInt(n int, slice []int) []int {
+	if n != 0 {
+		i := n % 10
+		slice = append([]int{i}, slice...)
+		return sliceInt(n/10, slice)
+	}
+	return slice
 }

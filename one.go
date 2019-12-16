@@ -5,26 +5,26 @@ import (
 	"strings"
 )
 
-func one(part int) {
+func one() {
 	input := strings.Split(read("one.txt"), "\n")
 	modules := getInts(input)
-	totalFuel := 0
+	var total1, total2 int
 	for _, mass := range modules {
-		fuel := 0
-		if part == 1 {
-			totalFuel += getFuel(mass)
-		} else {
-			for {
-				mass = getFuel(mass)
-				if mass <= 0 {
-					break
-				}
-				fuel += mass
+		var fuel int
+		// part 1
+		total1 += getFuel(mass)
+		// part 2
+		for {
+			mass = getFuel(mass)
+			if mass <= 0 {
+				break
 			}
-			totalFuel += fuel
+			fuel += mass
 		}
+		total2 += fuel
 	}
-	fmt.Println(totalFuel)
+	fmt.Println(total1)
+	fmt.Println(total2)
 }
 
 func getFuel(mass int) int {
