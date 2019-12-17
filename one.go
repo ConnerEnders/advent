@@ -1,12 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
-	"strings"
 )
 
 func one() {
-	input := strings.Split(read("one.txt"), "\n")
+	input := bytes.Split(read("one.txt"), []byte("\n"))
 	modules := getInts(input)
 	var total1, total2 int
 	for _, mass := range modules {

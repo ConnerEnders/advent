@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
 	"strconv"
@@ -14,7 +13,7 @@ func main() {
 	case 2:
 		two()
 	case 3:
-		fmt.Println(sliceInt(1239487192, make([]int, 0)))
+		three()
 	}
 }
 
@@ -24,10 +23,10 @@ func check(e error) {
 	}
 }
 
-func read(file string) string {
+func read(file string) []byte {
 	input, err := ioutil.ReadFile(file)
 	check(err)
-	return string(input)
+	return input
 }
 
 func getInt(s string) int {
@@ -36,10 +35,10 @@ func getInt(s string) int {
 	return i
 }
 
-func getInts(strings []string) []int {
+func getInts(bytes [][]byte) []int {
 	ints := make([]int, 0)
-	for _, s := range strings {
-		ints = append(ints, getInt(s))
+	for _, b := range bytes {
+		ints = append(ints, getInt(string(b)))
 	}
 	return ints
 }

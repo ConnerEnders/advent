@@ -1,12 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
-	"strings"
 )
 
 func two() {
-	mem := strings.Split(read("two.txt"), ",")
+	mem := bytes.Split(read("two.txt"), []byte(","))
 	// part 1
 	fmt.Println(compute(getInts(mem), 12, 2))
 	// part 2
