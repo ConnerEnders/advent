@@ -43,6 +43,13 @@ func getInts(bytes [][]byte) []int {
 	return ints
 }
 
+func absInt(i int) int {
+	if i < 0 {
+		return -i
+	}
+	return i
+}
+
 func sliceInt(n int, slice []int) []int {
 	if n != 0 {
 		i := n % 10
